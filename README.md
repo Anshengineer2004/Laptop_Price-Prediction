@@ -1,39 +1,37 @@
-# 💻 Laptop Price - Exploratory Data Analysis (EDA)
 
-This repository contains a comprehensive **Exploratory Data Analysis (EDA)** and data preprocessing notebook on a laptop pricing dataset. The project focuses on cleaning, visualizing, and analyzing how various technical specifications (like Processor Speed, RAM, Storage, etc.) influence the retail price of laptops.
+# Laptop Price Analysis
 
----
-
-## 📊 Dataset Overview
-The dataset (`Laptop_price.csv`) contains **1,000 entries** with the following features:
-* **Brand**: Laptop manufacturer (Asus, Acer, Lenovo, HP, Dell, etc.)
-* **Processor_Speed**: Speed of the processor (in GHz)
-* **RAM_Size**: Random Access Memory size (4GB, 8GB, 16GB, 32GB)
-* **Storage_Capacity**: Internal storage (256GB, 512GB, 1000GB)
-* **Screen_Size**: Size of the screen (in inches)
-* **Weight**: Weight of the laptop (in kg)
-* **Price**: Target variable (retail price of the laptop)
+This project is a simple Jupyter Notebook that performs Exploratory Data Analysis (EDA) and data preprocessing on a laptop pricing dataset.
 
 ---
 
-## 🛠️ Key Features of the Analysis
-The analysis is structured into clear data science workflows:
-
-1. **Data Loading & Inspection**: 
-   * Initial checks using `.head()`, `.tail()`, `.info()`, and `.describe()`.
-   * Verifying data types and missing values.
-2. **Data Cleaning**:
-   * Checking for null values (`isnull().sum()`) and duplicate entries (`duplicated().sum()`).
-3. **Data Preprocessing**:
-   * Encoding categorical features using one-hot encoding (`pd.get_dummies()`) to make the data ready for machine learning models.
-4. **Data Visualization**:
-   * Plotting price distribution histograms with Kernel Density Estimates (KDE) using `Seaborn` to understand market pricing trends.
+## About the Dataset
+The dataset (`Laptop_price.csv`) contains information about different laptops and their retail prices:
+* **Brand**: The brand of the laptop (Dell, HP, Lenovo, etc.)
+* **Processor_Speed**: Clock speed of the processor in GHz.
+* **RAM_Size**: Memory size (4GB, 8GB, 16GB, 32GB).
+* **Storage_Capacity**: Storage space (256GB, 512GB, 1000GB).
+* **Screen_Size**: Display size in inches.
+* **Weight**: Weight of the laptop in kilograms.
+* **Price**: The selling price of the laptop (Target Variable).
 
 ---
 
-## 🚀 Getting Started
+## What this Notebook does:
 
-### Prerequisites
-Make sure you have the following Python libraries installed:
-```bash
-pip install pandas numpy matplotlib seaborn
+1. **Loads the Data**: Reads the dataset using Pandas and displays basic information.
+2. **Cleans the Data**: Checks for missing (null) values and duplicate rows.
+3. **Preprocesses the Data**: Converts the categorical "Brand" column into numbers using One-Hot Encoding (`pd.get_dummies()`).
+4. **Visualizes the Data**: Plots simple graphs using Seaborn and Matplotlib to analyze relationships.
+
+---
+
+## 📊 Key Insights from Visualizations
+
+Based on the plots generated in this notebook:
+
+* **Price Distribution (Tri-modal)**: The laptop prices are not normally distributed. Instead, they fall into three distinct price tiers: budget (~10,000), mid-range (~17,000), and premium (~32,000).
+* **Feature Correlation (Heatmap)**: **Storage Capacity** has a perfect linear correlation of `1.00` with the Price, making it the single most dominant factor determining the laptop's cost in this dataset. Other features like RAM and Processor Speed show almost no direct linear correlation with price on their own.
+* **RAM vs Price (Scatter Plot)**: Laptops across all RAM sizes (4GB to 32GB) exist within the three specific price bands. This confirms that RAM size alone does not push a laptop into a higher price tier in this dataset.
+
+---
